@@ -1,0 +1,21 @@
+# Intellij Project Files
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Project Build files
+out
+out/*
+target
+build
+.gradle
+history
+
+# Compiled java classes
+*.class
+
+# Windows Files
+.Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
