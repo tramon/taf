@@ -1,4 +1,4 @@
-package core;
+package core.configuration;
 
 import static info.macias.kaconf.sources.JavaUtilPropertySource.from;
 

@@ -1,6 +1,6 @@
 package core.cucumber;
 
-import core.ConfigurationManager;
+import core.configuration.ConfigurationManager;
 import io.cucumber.plugin.ConcurrentEventListener;
 import io.cucumber.plugin.Plugin;
 import io.cucumber.plugin.event.EventHandler;
