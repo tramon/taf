@@ -1,9 +1,11 @@
 package steps.google;
 
+
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static core.properties.Properties.BASE_URL;
-import static core.properties.Properties.ENDPOINT_CALC;
+import static core.properties.Urls.BASE_URL;
+import static core.properties.Urls.ENDPOINT_CALC;
 import static org.hamcrest.Matchers.is;
+
 
 import com.codeborne.selenide.Selenide;
 import java.time.Duration;
