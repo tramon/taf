@@ -9,7 +9,6 @@ import static core.properties.Urls.BASE_URL;
 import static core.properties.Urls.ENDPOINT_CALC;
 import static org.hamcrest.Matchers.matchesPattern;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,8 +29,8 @@ public class SmokeTest extends BaseTest {
   public void testNg2() {
     Selenide.open(BASE_URL + ENDPOINT_CALC);
     $(By.name("q")).setValue("BrowserStack").pressEnter();
-    sleep(2000);
 
+    sleep(1000);
     MatcherAssert.assertThat("Google search does not match the pattern",
         title(), matchesPattern("BrowserStack -.*"));
   }

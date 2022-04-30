@@ -1,6 +1,7 @@
 package scenarios;
 
 import core.configuration.ConfigurationManager;
+import io.cucumber.java.BeforeAll;
 
 
 public class BaseTest {

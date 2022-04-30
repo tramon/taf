@@ -19,3 +19,5 @@ history
 .Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+src/main/resources/browserstack.properties

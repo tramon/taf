@@ -46,4 +46,26 @@ Using Gradle example:
 
 ***
 
+To run Tests remotely using browserstack you need:
+(this file is ignored by git and wil only be stored in your own local PC)
+1. pass a Runtime variable (like env) remote=true
+ example: -Dremote=true
+2. create a browserstack.properties file
+3. populate it with your PERSONAL browserstack username:
+   example: browserstack.username=authorUserName
+4. populate it with your PERSONAL browserstack access key
+   example: browserstack.access.key=someAccessKeyProvidedByBrowserStack
+
+so the filename will be browserstack.properties
+it will be in a root folder
+
+the resulting file will consist of two properties:
+- browserstack.username=authorUserName
+- browserstack.access.key=someAccessKeyProvidedByBrowserStack
+
+***
+
+Browser Stack screenshots are stored here: build/reports/tests
+
+***
 
