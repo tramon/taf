@@ -15,41 +15,47 @@ public class RuntimeVariablesManager {
   @Getter
   private static String os;
   @Getter
-  private static boolean remote;
-  @Getter
-  private static String browserStackUserName;
-  @Getter
-  private static String browserStackAccessKey;
-
+  private static boolean isRemote;
 
   public static void initRuntimeVariables() {
     log.debug("Initializing Runtime variables");
 
-    env = getStringValue(RuntimeVariables.ENV);
-    remote = Boolean.parseBoolean(getStringValue(RuntimeVariables.REMOTE));
+    initEnv();
+    initBrowser();
+    initRemote();
+    initOs();
 
-    if (remote) {
-      browserStackUserName = getStringValue(RuntimeVariables.BROWSERSTACK_USERNAME);
-      browserStackAccessKey = getStringValue(RuntimeVariables.BROWSERSTACK_ACCESS_KEY);
-    }
+  }
 
-    os = getStringValue(RuntimeVariables.OS);
-
+  private static void initBrowser() {
     String currentBrowser = getStringValue(RuntimeVariables.BROWSER);
 
     if (currentBrowser != null) {
-      log.debug("Browser: " + currentBrowser);
+      log.debug("Browser: \t\t\t" + currentBrowser);
       browser = currentBrowser;
     } else {
       browser = "chrome";
-      log.debug("Browser: Chrome");
+      log.debug("Using default browser: \t\t\t\tchrome");
     }
+  }
 
+  private static void initEnv() {
+    env = getStringValue(RuntimeVariables.ENV);
+    log.debug("Initializing environment env: \t" + env);
+  }
+
+  private static void initOs() {
+    os = getStringValue(RuntimeVariables.OS);
+    log.debug("Initializing Os: \t\t\t\t\t\t\t" + os);
+  }
+
+  private static void initRemote() {
+    isRemote = Boolean.parseBoolean(getStringValue(RuntimeVariables.REMOTE));
+    log.debug("Initializing Remote work: \t\t\t" + isRemote);
   }
 
   private static String getStringValue(RuntimeVariables runtimeVariables) {
     return System.getProperty(runtimeVariables.getValue());
   }
-
 
 }

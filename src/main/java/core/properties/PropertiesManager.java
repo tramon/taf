@@ -1,7 +1,6 @@
 package core.properties;
 
 
-
 import static info.macias.kaconf.sources.JavaUtilPropertySource.from;
 
 
@@ -24,12 +23,23 @@ public class PropertiesManager {
     log.debug("Initializing Environment variables and Selenide default Configuration");
     String urlProperties = RuntimeVariablesManager.getEnv();
 
-    File mainConfigFile = new File(String.format(PATH_TO_ENVIRONMENTS_MASK, urlProperties));
-    Preconditions.checkArgument(mainConfigFile.exists(),
-        "The following config file does not exist: " + mainConfigFile.getAbsolutePath());
+    File environmentConfigFile = new File(String.format(PATH_TO_ENVIRONMENTS_MASK, urlProperties));
+    File browserStackConfigFile = new File("browserstack.properties");
 
-    Configurator configurator = new ConfiguratorBuilder().addSource(from(mainConfigFile)).build();
+    Preconditions.checkArgument(environmentConfigFile.exists(),
+        "The Environment config file does not exist: " +
+            environmentConfigFile.getAbsolutePath());
+    Preconditions.checkArgument(browserStackConfigFile.exists(),
+        "The Browser Stack config file does not exist: " +
+            browserStackConfigFile.getAbsolutePath());
+
+    Configurator configurator = new ConfiguratorBuilder()
+        .addSource(from(environmentConfigFile))
+        .addSource(from(browserStackConfigFile))
+        .build();
     configurator.configure(Urls.class);
+    configurator.configure(BrowserStackProperties.class);
+
   }
 
 }
