@@ -20,4 +20,4 @@ history
 Desktop.ini
 $RECYCLE.BIN/
 
-src/main/resources/browserstack.properties
+browserstack.properties

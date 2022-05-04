@@ -38,6 +38,8 @@ dependencies {
     implementation 'info.macias:kaconf:0.9.0'
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'com.browserstack:browserstack-local-java:1.0.6'
+    implementation 'io.appium:java-client:8.0.0'
+
 }
 
 test {
